@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receitas do Casal 🍝</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header>
+    <h1>📖 Receitas do Casal</h1>
+    <p>Salvas com carinho ❤️</p>
+    <input type="text" id="busca" placeholder="Buscar receita..." />
+    <div id="filtrosCategorias">
+      <button onclick="filtrarCategoria('Todas')">Todas</button>
+    </div>
+  </header>
+  <main>
+    <section class="acoes">
+      <button onclick="mostrarFormulario()">+ Nova Receita</button>
+      <input type="text" id="novaCategoria" placeholder="Nova categoria" />
+      <button onclick="adicionarCategoria()">+ Categoria</button>
+    </section>
+
+    <form id="form" class="hidden" onsubmit="adicionarReceita(event)">
+      <input type="text" id="nome" placeholder="Nome da receita" required />
+      <select id="categoria"></select>
+      <textarea id="ingredientes" placeholder="Ingredientes" required></textarea>
+      <textarea id="preparo" placeholder="Modo de preparo" required></textarea>
+      <input type="file" id="imagemInput" accept="image/*" required />
+      <button type="submit">Adicionar</button>
+    </form>
+
+    <div id="receitas" class="grid"></div>
+  </main>
+
+  <div id="modal" class="hidden">
+    <div id="modal-content">
+      <img id="modalImagem" />
+      <h2 id="modalTitulo"></h2>
+      <ul id="modalIngredientes"></ul>
+      <p id="modalPreparo"></p>
+      <button onclick="fecharModal()">Fechar</button>
+    </div>
+  </div>
+</body>
+</html>
